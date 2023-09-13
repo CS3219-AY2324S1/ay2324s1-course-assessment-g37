@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const QuestionSchema = new mongoose.Schema({
   title: String,
-  categories: [String],
+  categories: String,
   complexity: String,
   description: String
 })
