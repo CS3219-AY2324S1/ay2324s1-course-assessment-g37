@@ -1,6 +1,6 @@
 export type Question = {
   title: string
-  categories: string[]
+  category: string
   complexity: 'Easy' | 'Medium' | 'Hard'
   description: string
 };

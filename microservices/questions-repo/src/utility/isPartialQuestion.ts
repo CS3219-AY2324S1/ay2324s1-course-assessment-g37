@@ -1,5 +1,5 @@
 import { Question } from "../types";
-import { hasKey, isArrayOfType } from ".";
+import { hasKey } from ".";
 
 /**
  * Checks that the given input is a partial Question
@@ -10,8 +10,8 @@ export function isPartialQuestion(unknown: unknown): unknown is Question {
   if (hasKey(unknown, 'title')
       && typeof unknown['title'] !== 'string') {
     return false;
-  } else if (hasKey(unknown, 'categories')
-      && !isArrayOfType(unknown['categories'], obj => typeof obj === 'string')) {
+  } else if (hasKey(unknown, 'category')
+      && typeof unknown['category'] !== 'string') {
     return false;
   } else if (hasKey(unknown, 'difficulty')
       && (
