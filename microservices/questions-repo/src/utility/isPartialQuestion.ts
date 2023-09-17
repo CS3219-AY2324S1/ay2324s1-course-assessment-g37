@@ -13,10 +13,10 @@ export function isPartialQuestion(unknown: unknown): unknown is Question {
   } else if (hasKey(unknown, 'category')
       && typeof unknown['category'] !== 'string') {
     return false;
-  } else if (hasKey(unknown, 'difficulty')
+  } else if (hasKey(unknown, 'complexity')
       && (
-          typeof unknown['difficulty'] !== 'string'
-          || !['Easy', 'Medium', 'Hard'].includes(unknown['difficulty'])
+          typeof unknown['complexity'] !== 'string'
+          || !['Easy', 'Medium', 'Hard'].includes(unknown['complexity'])
       )) {
     return false;
   } else if (hasKey(unknown, 'description')

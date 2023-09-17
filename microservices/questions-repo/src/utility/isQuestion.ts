@@ -13,9 +13,9 @@ export function isQuestion(unknown: unknown): unknown is Question {
   } else if (!hasKey(unknown, 'category')
       || typeof unknown['category'] !== 'string') {
     return false;
-  } else if (!hasKey(unknown, 'difficulty')
-      || typeof unknown['difficulty'] !== 'string'
-      || !['Easy', 'Medium', 'Hard'].includes(unknown['difficulty'])) {
+  } else if (!hasKey(unknown, 'complexity')
+      || typeof unknown['complexity'] !== 'string'
+      || !['Easy', 'Medium', 'Hard'].includes(unknown['complexity'])) {
     return false;
   } else if (!hasKey(unknown, 'description')
       || typeof unknown['description'] !== 'string') {
