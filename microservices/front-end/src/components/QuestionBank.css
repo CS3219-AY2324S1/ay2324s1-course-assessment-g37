@@ -1,0 +1,113 @@
+/* set button component */
+button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    margin: 3px;
+}
+
+button:hover {
+    border-color: #646cff;
+    
+}
+button:focus,
+button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+.action-button {
+    border: 2px solid #A09797;
+}
+.action-button:hover {
+    border-color: #A09797;
+    background-color: #E6E1E1;
+}
+
+/* Align text center for category, and complexity */
+.center-align-cell {
+    text-align: center;
+}
+  
+/* Style the header row of the table */
+/* th {
+    font-size: 1.25em;
+    background-color: #C4C5C5;
+    text-align: center;
+    padding: 10px;
+} */
+
+.table-header {
+    font-size: 1.25em; /* Equivalent to h4 size */
+    background-color: #C4C5C5;
+    text-align: center;
+    padding: 10px;
+}
+
+.add-header {
+    text-align: center;
+}
+
+/* Style for form labels */
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-align: left;
+}
+  
+/* Style for input fields */
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: left;
+}
+  
+/* Setting minimum width and height for textarea */
+textarea {
+    min-width: 100%;
+    min-height: 100px;
+}
+  
+/* Prettier select field */
+select {
+    appearance: none;
+    /* background: url('data:image/png;base64,iVBORw0KGg...') no-repeat; Optional: Add a small arrow image */
+    background-color: #e5e9e9;
+    background-position: right 0.5rem center;
+    background-size: 1.5em;
+    padding-right: 1.5em;
+}
+  
+/* Light scheme styling for input fields */
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #a8a8a8;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.update-form {
+    display: flex;
+    flex-direction: column;
+}
+  
+.update-form > div {
+    margin-bottom: 1rem;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }

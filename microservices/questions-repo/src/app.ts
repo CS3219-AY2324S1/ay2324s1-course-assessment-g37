@@ -33,17 +33,8 @@ function initialiseDatabase() {
  * Gets port as a string, number or false.
  */
 function getPort() {
-  const rawPort = process.env.PORT || '3000';
-  const port = parseInt(rawPort, 10);
-  if (isNaN(port)) {
-    // named pipe
-    return rawPort;
-  }
-  if (port >= 0) {
-    // port number
-    return port;
-  }
-  return false;
+  const rawPort = process.env.PORT || '3001';
+  return parseInt(rawPort, 10);
 }
 
 // Set up server
@@ -80,7 +71,7 @@ function initialiseExpressApp(port: string | number | false) {
 /**
  * Set up HTTP server.
  */
-function initialiseServer(app: Express, port: string | number | false) {
+function initialiseServer(app: Express, port: number) {
 
   /**
    * Event listener for HTTP server "error" event.
@@ -124,7 +115,7 @@ function initialiseServer(app: Express, port: string | number | false) {
 
   const server = http.createServer(app);
   // Listen on provided port, on all network interfaces.
-  server.listen(port);
+  server.listen(port, '0.0.0.0');
   server.on('error', onError);
   server.on('listening', onListening);
   return server;

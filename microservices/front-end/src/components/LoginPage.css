@@ -1,0 +1,76 @@
+.login-container {
+    /* display: flex;
+    flex-direction: column; */
+    align-items: center;
+    padding: 2rem;
+}
+
+.login-header {
+    margin-top: -100px;
+}
+
+.input-field {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    margin: 3px;
+}
+
+button:hover {
+    border-color: #646cff;
+    
+}
+button:focus,
+button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+.action-button {
+    border: 2px solid #A09797;
+}
+.action-button:hover {
+    border-color: #A09797;
+    background-color: #E6E1E1;
+}
+
+/* Style for form labels */
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-align: left;
+}
+  
+/* Style for input fields */
+input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: left;
+}
+
+/* Light scheme styling for input fields */
+input:focus {
+    border-color: #a8a8a8;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.failed {
+    color: #B22F2F;
+    text-align: center;
+}
+
