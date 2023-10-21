@@ -1,0 +1,26 @@
+{
+  "name": "matching-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start:rabbitMQ": "docker run --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq",
+    "start:matching-service": "node ./dist/server.js",
+    "dev": "tsc-watch --noClear --onSuccess \"node ./dist/server.js\"",
+    "test:match": "node ./dist/utility/runClient.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.10.3",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/amqplib": "^0.10.2",
+    "@types/node": "^20.6.4",
+    "@types/uuid": "^9.0.5",
+    "tsc-watch": "^6.0.4",
+    "typescript": "^5.2.2"
+  }
+}

@@ -1,0 +1,82 @@
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile_container {
+  align-items: center;
+  padding: 2rem;
+}
+
+.profile_detail {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile_detail label,
+.profile_detail span {
+  font-size: 1.5em;
+}
+
+.profile_detail label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.center_align_cell {
+  text-align: center;
+}
+
+.table_header {
+  font-size: 1.25em;
+  background-color: #c4c5c5;
+  text-align: center;
+  padding: 10px;
+}
+
+.add_header {
+  text-align: center;
+}
+
+.label_name {
+  display: block;
+  font-weight: 600;
+  text-align: left;
+}
+
+.user_info {
+  margin-left: 15px;
+}
+
+.update_form {
+  display: flex;
+  flex-direction: column;
+}
+
+.update_form > div {
+  margin-bottom: 1rem;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.action_button {
+  border-radius: 8px;
+  border: 2px solid #a09797;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  margin: 3px;
+}
+.action_button:hover {
+  border-color: #a09797;
+  background-color: #e6e1e1;
+}

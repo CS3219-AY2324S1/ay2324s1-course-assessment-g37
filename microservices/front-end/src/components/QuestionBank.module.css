@@ -1,0 +1,161 @@
+/* In Module CSS, if you define stuff using tag, like 
+button, label, it will still be GLOBAL by default! */
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.action_button {
+  border-radius: 8px;
+  border: 2px solid #a09797;
+  padding: 0.6em 1em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  margin: 1px;
+}
+.action_button:hover {
+  border-color: #a09797;
+  background-color: #e6e1e1;
+}
+
+.category_button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  margin: 3px;
+  text-align: left;
+}
+.category_button:hover {
+  border-color: #646cff;
+}
+
+/* Align text center for category, and complexity */
+.center_align_cell {
+  text-align: center;
+}
+
+.table_container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 97%;
+}
+
+.table_header {
+  font-size: 1.25em; /* Equivalent to h4 size */
+  background-color: #c4c5c5;
+  text-align: center;
+  padding: 10px;
+}
+
+.table_header_basic {
+  font-size: 1.25em;
+  background-color: #c4c5c5;
+  text-align: center;
+  padding: 10px;
+}
+
+.table_header.title {
+  width: 35%;
+}
+
+.table_header.category {
+  width: 35%;
+}
+
+.table_header.complexity {
+  width: 15%;
+}
+
+.table_header.actions {
+  width: 15%;
+}
+
+.table_header_basic.title {
+  width: 40%;
+}
+
+.table_header_basic.category {
+  width: 40%;
+}
+
+.table_header_basic.complexity {
+  width: 20%;
+}
+
+.add_header {
+  text-align: center;
+}
+
+/* Style for form labels */
+.the_label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+/* Style for input fields */
+
+/* Setting minimum width and height for textarea */
+.text_area {
+  min-width: calc(100% - 1rem);
+  min-height: 100px;
+}
+
+.the_select {
+  appearance: none;
+  background-color: #e5e9e9;
+  background-position: right 0.5rem center;
+  background-size: 1.5em;
+  padding-right: 1.5em;
+}
+
+.input_text,
+.text_area,
+.the_select {
+  width: calc(100% - 1rem);
+  /* Use calc, otherwise if first apply width then padding, will overshoot */
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: left;
+}
+
+/* Light scheme styling for input fields */
+.input_text:focus,
+.text_area:focus,
+.the_select:focus {
+  border-color: #a8a8a8;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.update_form {
+  display: flex;
+  flex-direction: column;
+}
+
+.update_form > div {
+  margin-bottom: 1rem;
+}
+
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form_container {
+  width: 80%;
+  margin: auto;
+}

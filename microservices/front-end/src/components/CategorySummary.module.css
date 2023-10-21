@@ -1,0 +1,31 @@
+.summary_container {
+  width: 90%;
+  margin: auto;
+}
+
+.summary_button {
+  background: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  padding: 2px 2px;
+  color: #000000;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+.summary_button:hover,
+.summary_button:active {
+  color: #1c9cd2;
+}
+
+.active {
+  color: rgb(55, 145, 230);
+}
+
+.count {
+  background-color: rgb(215, 209, 209);
+  border-radius: 8px; /* Adjust for the amount of rounding you want */
+  padding: 2px 5px; /* vertical, horizontal padding */
+}

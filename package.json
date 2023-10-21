@@ -1,0 +1,29 @@
+{
+  "name": "ay2324s1-course-assessment-g37",
+  "version": "1.0.0",
+  "description": "[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/6BOvYMwN)\r # AssignmentTemplate",
+  "main": "index.js",
+  "scripts": {
+    "install:front-end": "cd microservices/front-end && npm install",
+    "install:auth": "cd microservices/auth && npm install",
+    "install:user-service": "cd microservices/user-service && npm install",
+    "install:questions-service": "cd microservices/questions-service && npm install",
+    "install:matching-service": "cd microservices/matching-service && npm install",
+    "install:history-service": "cd microservices/history-service && npm install",
+    "install-all": "concurrently -c \"red,green,yellow,blue,magenta,cyan,gray\" \"npm:install:*\"",
+
+    "dev:front-end": "cd microservices/front-end && npm run dev",
+    "dev:auth": "cd microservices/auth && npm run dev",
+    "dev:user-service": "cd microservices/user-service && npm run start",
+    "dev:questions-service": "cd microservices/questions-service && npm run dev",
+    "dev:rabbitMQ": "cd microservices/matching-service && npm run start:rabbitMQ",
+    "dev:matching-service": "cd microservices/matching-service && npm run dev",
+    "dev:history-service": "cd microservices/history-service && npm run dev",
+    "dev-all": "concurrently -c \"red,green,yellow,blue,magenta,cyan,gray\" \"npm:dev:*\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.1"
+  }
+}

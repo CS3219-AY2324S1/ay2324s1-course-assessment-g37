@@ -1,0 +1,21 @@
+.filter_container {
+  display: flex;
+  gap: 1rem; /* Space between select boxes */
+  width: 90%;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* .the_select {
+  appearance: none;
+  background-color: #f2f7f7;
+  background-position: right 0.5rem center;
+  background-size: 1.5em;
+  padding-right: 1.5em;
+  width: calc(50% - 0.5rem);
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: left;
+} */

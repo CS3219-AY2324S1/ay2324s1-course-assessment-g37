@@ -1,0 +1,78 @@
+version: 'v2.21.0-desktop.1'
+
+services:
+  frontend:
+    container_name: frontend
+    build:
+      context: ./microservices/front-end
+      dockerfile: Dockerfile.frontend
+    ports:
+      - 5173:5173
+    environment:
+      - AUTH_SERVICE_URL=http://auth-server:8080
+    depends_on:
+      - auth-server
+      - question-server
+
+  question-server:
+    container_name: question-server
+    build:
+      context: ./microservices/questions-service
+      dockerfile: Dockerfile.question
+    ports:
+      - "3001:3001"
+    environment:
+      MONGO_URI: /run/secrets/QUESTION_MONGO_URI
+      PORT: 3001
+    secrets:
+      - QUESTION_MONGO_URI
+
+  user-server:
+    container_name: user-server
+    build:
+      context: ./microservices/user-service
+      dockerfile: Dockerfile.user
+    ports:
+      - "3219:3219"
+    environment:
+      PGHOST: /run/secrets/USER_HOST
+      PGUSER: /run/secrets/USER_USERNAME
+      PGDATABASE: 'neondb'
+      PGPASSWORD: /run/secrets/USER_PASSWORD
+      PGPORT: 5432
+    secrets:
+      - USER_USERNAME
+      - USER_PASSWORD
+      - USER_HOST
+
+  auth-server:
+    container_name: auth-server
+    build:
+      context: ./microservices/auth
+      dockerfile: Dockerfile.auth
+    ports:
+      - "8080:8080"
+    environment:
+      AUTH_MONGODB_URI: /run/secrets/AUTH_MONGODB_URI
+      AUTH_SESSION_SECRET: /run/secrets/AUTH_SESSION_SECRET
+      USER_SERVICE_URL: http://user-server:3219
+      QUESTION_SERVICE_URL: http://question-server:3001
+    secrets:
+      - AUTH_MONGODB_URI
+      - AUTH_SESSION_SECRET
+    depends_on:
+      - user-server
+
+secrets:
+  AUTH_MONGODB_URI:
+    file: ./secrets/auth_service_mongo_uri.txt
+  AUTH_SESSION_SECRET:
+    file: ./secrets/auth_service_session_secret.txt
+  QUESTION_MONGO_URI:
+    file: ./secrets/question_service_mongo_uri.txt
+  USER_USERNAME:
+    file: ./secrets/user_service_username.txt
+  USER_PASSWORD:
+    file: ./secrets/user_service_password.txt
+  USER_HOST:
+    file: ./secrets/user_service_host.txt

@@ -1,0 +1,20 @@
+.question-title {
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-align: center;
+  width: 25rem;
+}
+
+.code {
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-align: center;
+  width: 40rem;
+}
+
+.attempt-time {
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-align: center;
+  width: 13rem;
+}
