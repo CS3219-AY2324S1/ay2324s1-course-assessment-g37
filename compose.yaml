@@ -9,7 +9,7 @@ services:
     ports:
       - 5173:5173
     environment:
-      - AUTH_SERVICE_URL=http://auth-server:8080
+      - VITE_AUTH_SERVICE_URL=http://192.168.1.26:8080
     depends_on:
       - auth-server
       - question-server
@@ -57,6 +57,8 @@ services:
       AUTH_SESSION_SECRET: /run/secrets/AUTH_SESSION_SECRET
       USER_SERVICE_URL: http://user-server:3219
       QUESTION_SERVICE_URL: http://question-server:3001
+      MATCHING_SERVICE_URL: amqp://rabbitmq:5672
+
     secrets:
       - AUTH_MONGODB_URI
       - AUTH_SESSION_SECRET
@@ -68,10 +70,10 @@ services:
     build:
       context: ./microservices/matching-service
       dockerfile: Dockerfile.match
-    ports:
-      - "5672:5672"
     depends_on:
       - rabbitmq
+    environment:
+      MATCHING_SERVICE_URL: amqp://rabbitmq:5672
 
   rabbitmq:
     container_name: rabbitmq
