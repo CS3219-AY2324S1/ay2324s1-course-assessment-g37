@@ -7,12 +7,11 @@ services:
       context: ./microservices/front-end
       dockerfile: Dockerfile.frontend
     ports:
-      - 5173:5173
+      - "5173:5173"
     environment:
-      - VITE_AUTH_SERVICE_URL=http://192.168.1.26:8080
+      VITE_AUTH_SERVICE_URL: http://127.0.0.1:8080
     depends_on:
       - auth-server
-      - question-server
 
   question-server:
     container_name: question-server
@@ -37,7 +36,7 @@ services:
     environment:
       PGHOST: /run/secrets/USER_HOST
       PGUSER: /run/secrets/USER_USERNAME
-      PGDATABASE: 'neondb'
+      PGDATABASE: neondb
       PGPASSWORD: /run/secrets/USER_PASSWORD
       PGPORT: 5432
     secrets:
@@ -57,23 +56,24 @@ services:
       AUTH_SESSION_SECRET: /run/secrets/AUTH_SESSION_SECRET
       USER_SERVICE_URL: http://user-server:3219
       QUESTION_SERVICE_URL: http://question-server:3001
-      MATCHING_SERVICE_URL: amqp://rabbitmq:5672
-
+      RABBITMQ_URL: amqp://rabbitmq:5672
     secrets:
       - AUTH_MONGODB_URI
       - AUTH_SESSION_SECRET
     depends_on:
       - user-server
+      - question-server
+      - matching-server
 
   matching-server:
     container_name: matching-server
     build:
       context: ./microservices/matching-service
       dockerfile: Dockerfile.match
+    environment:
+      RABBITMQ_URL: amqp://rabbitmq:5672
     depends_on:
       - rabbitmq
-    environment:
-      MATCHING_SERVICE_URL: amqp://rabbitmq:5672
 
   rabbitmq:
     container_name: rabbitmq

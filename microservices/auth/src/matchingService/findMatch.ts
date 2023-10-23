@@ -5,7 +5,7 @@ import { isMatchResponse } from './isMatchResponse';
 
 const QUEUE_NAME = 'matching_service_queue';
 
-const URL = process.env.MATCHING_SERVICE_URL || `amqp://127.0.0.1:5672`;
+const URL = process.env.RABBITMQ_URL || `amqp://127.0.0.1:5672`;
 
 export async function sendMatchRequest(request: MatchRequest) {
   const connection = await amqp.connect(URL);

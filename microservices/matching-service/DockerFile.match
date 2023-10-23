@@ -8,4 +8,6 @@ RUN npm install
 
 RUN npm run build
 
+EXPOSE 5672
+
 CMD [ "npm", "run", "start:matching-service" ]
