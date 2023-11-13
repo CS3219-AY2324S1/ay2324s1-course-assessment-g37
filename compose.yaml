@@ -52,7 +52,7 @@ services:
       # the following line is only for development purposes
       # FRONT_END_URL: http://localhost:5173
       # for load balancer
-      # FRONT_END_URL: http://peerprepauthserver-1-1410215255.ap-southeast-1.elb.amazonaws.com/question-bank:80
+      # FRONT_END_URL: http://peerprepauthserver-1-1410215255.ap-southeast-1.elb.amazonaws.com:80
       # for single EC2 instance
       # FRONT_END_URL: http://13.214.193.48:8080
       FRONT_END_URL: http://192.168.1.26:8080
@@ -101,7 +101,7 @@ services:
       dockerfile: Dockerfile.collab
     environment:
       # for load balancer
-      # FRONT_END_URL: http://peerprepauthserver-1-1410215255.ap-southeast-1.elb.amazonaws.com/question-bank:80
+      # FRONT_END_URL: http://peerprepauthserver-1-1410215255.ap-southeast-1.elb.amazonaws.com:80
       # for single EC2 instance
       # FRONT_END_URL: http://13.214.193.48:8080
       FRONT_END_URL: http://192.168.1.26:8080
