@@ -27,7 +27,8 @@ dotenv.config();
 
 if (
   process.env.AUTH_MONGODB_URI === undefined ||
-  process.env.AUTH_SESSION_SECRET === undefined
+  process.env.AUTH_SESSION_SECRET === undefined ||
+  process.env.JUDGE0_API_KEY === undefined
 ) {
   throw new Error("dotenv is not configured!");
 }
@@ -48,7 +49,10 @@ const QUESTION_SERVICE_URL =
   process.env.QUESTION_SERVICE_URL ?? "http://localhost:3001";
 const HISTORY_SERVICE_URL =
   process.env.HISTORY_SERVICE_URL ?? "http://localhost:7999";
-const JUDGE0_URL = process.env.VITE_JUDGE0_URL ?? "http://localhost:2358";
+const JUDGE0_URL = "https://judge0-ce.p.rapidapi.com";
+const JUDGE0_API_KEY = fs.existsSync(process.env.JUDGE0_API_KEY)
+  ? fs.readFileSync(process.env.JUDGE0_API_KEY, "utf8").trim()
+  : process.env.JUDGE0_API_KEY;
 
 const EVENT_FIND_MATCH = "match";
 const EVENT_MATCH_FOUND = "match found";
@@ -673,6 +677,9 @@ app.post("/api/execute", async (req, res) => {
   }
 
   try {
+    if (JUDGE0_API_KEY === undefined) {
+      throw new Error("JUDGE0_API_KEY is not configured!");
+    }
     const queryParams = new URLSearchParams({
       base64_encoded: "true",
       wait: "true",
@@ -681,11 +688,13 @@ app.post("/api/execute", async (req, res) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "X-RapidAPI-Key": JUDGE0_API_KEY,
+        "X-RapidAPI-Host": "judge0-ce.p.rapidapi.com",
       },
       body: JSON.stringify(req.body),
     });
 
-    if (response.status !== 201) {
+    if (response.status !== 200) {
       res.sendStatus(response.status);
       return;
     }
