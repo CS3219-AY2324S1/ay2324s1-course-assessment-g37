@@ -54,6 +54,13 @@ const themeNames = ["atom-one-dark", "github-dark", "monokai", "dark"] as const;
 
 type ThemeNames = (typeof themeNames)[number];
 
+const TOOLBAR_OPTIONS = [
+  ["bold", "italic", "underline", "strike"],
+  [{ color: [] }, { background: [] }],
+  ["code-block"],
+  ["clean"],
+];
+
 function Editor({ socket, setStdout, setIsOutputLoading }: EditorProps) {
   const dispatch = useAppDispatch();
   const [quill, setQuill] = useState<Quill | null>(null);
@@ -65,7 +72,7 @@ function Editor({ socket, setStdout, setIsOutputLoading }: EditorProps) {
     const editor = new Quill("#editor", {
       theme: "snow",
       modules: {
-        toolbar: [["code-block"]],
+        toolbar: TOOLBAR_OPTIONS,
         syntax: {
           highlight: (text: string) => {
             return hljs.highlight(text, { language: programmingLanguage })
