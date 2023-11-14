@@ -7,8 +7,7 @@ const FRONT_END_URL = process.env.FRONT_END_URL ?? "http://127.0.0.1:5173";
 
 const io = new Server(PORT, {
   cors: {
-    origin: [FRONT_END_URL, "http://localhost:5173"],
-    credentials: true,
+    origin: "*",
   },
 });
 
