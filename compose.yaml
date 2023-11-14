@@ -53,8 +53,6 @@ services:
       # FRONT_END_URL: http://localhost:5173
       # for load balancer
       # FRONT_END_URL: http://peerprepauthserver-1-1410215255.ap-southeast-1.elb.amazonaws.com:80
-      # for single EC2 instance
-      # FRONT_END_URL: http://peerprepcollabserver-1-2021801917.ap-southeast-1.elb.amazonaws.com:80
       FRONT_END_URL: http://192.168.1.26:8080
       USER_SERVICE_URL: http://user-server:3219
       QUESTION_SERVICE_URL: http://question-server:3001
@@ -102,8 +100,6 @@ services:
     environment:
       # for load balancer
       # FRONT_END_URL: http://peerprepauthserver-1-1410215255.ap-southeast-1.elb.amazonaws.com:80
-      # for single EC2 instance
-      # FRONT_END_URL: http://peerprepcollabserver-1-2021801917.ap-southeast-1.elb.amazonaws.com:80
       FRONT_END_URL: http://192.168.1.26:8080
       PORT: 3111
     ports:
